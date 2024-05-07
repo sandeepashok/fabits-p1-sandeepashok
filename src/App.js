@@ -1,10 +1,19 @@
-import './App.css';
+import styled from "@emotion/styled/macro";
+import MobileScreen from "./components/mobile-screen/MobileScreen";
+
+const AppContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+`
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <AppContainer>
+      <MobileScreen />
+    </AppContainer>
   );
 }
 

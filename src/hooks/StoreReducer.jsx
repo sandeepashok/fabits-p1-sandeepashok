@@ -2,7 +2,9 @@ import { TYPES } from "./types"
 
 export const initialState = {
   position: -100,
-  isVisible: true
+  isVisible: true,
+  currentScreen: 1,
+  experienceId: 1
 }
 
 const reducer = (state, action) => {
@@ -14,6 +16,10 @@ const reducer = (state, action) => {
       return carMoveRight(state);
     case TYPES.CAR_MOVE_LEFT:
       return carMoveLeft(state);
+    case TYPES.SELECT_EXP_LEVEL:
+      return selectExperienceLevel(state, payload)
+    case TYPES.SET_SCREEN_NUM:
+      return setScreenNumber(state, payload)
     default:
       return state
   }
@@ -29,6 +35,14 @@ const carMoveRight = (state) => {
 
 const carMoveLeft = (state) => {
   return { ...state, position: -100, isVisible: true }
+}
+
+const setScreenNumber = (state, num) => {
+  return { ...state, currentScreen: num }
+}
+
+const selectExperienceLevel = (state, id) => {
+  return { ...state, experienceId: id }
 }
 
 export default reducer

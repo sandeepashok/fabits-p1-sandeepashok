@@ -1,18 +1,19 @@
 import styled from "@emotion/styled/macro";
-import MobileScreen from "./components/mobile-screen/MobileScreen";
+import MobileScreenContent from "./components/screens/MobileScreen";
 
 const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #B0CBFF;
+  
 `
 
 function App() {
   return (
     <AppContainer>
-      <MobileScreen />
+      <MobileScreenContent />
     </AppContainer>
   );
 }

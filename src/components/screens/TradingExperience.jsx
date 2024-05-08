@@ -4,7 +4,6 @@ import { useContext } from "react"
 import { storeContext } from "../../hooks/StoreContext"
 import { TYPES } from "../../hooks/types"
 import { ReactComponent as ArrowNext } from "../../assets/arrow-right.svg"
-import { type } from "@testing-library/user-event/dist/type"
 
 const ScreenContainer = styled.div`
   width: 100%;

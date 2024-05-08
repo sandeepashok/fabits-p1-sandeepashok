@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "@emotion/styled/macro";
 import StatusBar from "../navbar/StatusBar";
 import Navbar from "../navbar/Navbar";

@@ -29,7 +29,7 @@ const CarImg = styled.img`
     opacity 0.1s ease
     ${({ screen }) => screen === 3 ? ",top 0.3s ease-in-out" : ""};
   opacity: ${({ visible }) => visible ? "1" : "0"};
-  @media (max-width: 425px){
+  @media (max-width: 475px){
     top: ${({ top }) => top + 20}px;
   }
   @media (max-width: 375px){

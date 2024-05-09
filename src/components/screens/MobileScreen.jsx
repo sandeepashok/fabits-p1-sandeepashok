@@ -21,7 +21,7 @@ const MobileScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  @media (max-width: 425px) {
+  @media (max-width: 475px) {
     height: 100vh;
     width: 100vw;
   }

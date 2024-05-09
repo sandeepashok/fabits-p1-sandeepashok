@@ -57,6 +57,8 @@ export const HeadingAndPageNoContainer = styled.div`
   width: 100%;
   padding: 24px 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 export const PageNumberContainer = styled.div`
   height: 56px;

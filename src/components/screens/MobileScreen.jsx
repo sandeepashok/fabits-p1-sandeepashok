@@ -12,7 +12,7 @@ import { TYPES } from "../../hooks/types";
 
 const MobileScreenContainer = styled.div`
   min-width: 320px;
-  max-width: 425px;
+  max-width: 475px;
   min-height: 800px;
   height: 800px;
   width: 360px;
@@ -22,6 +22,7 @@ const MobileScreenContainer = styled.div`
   flex-direction: column;
   position: relative;
   @media (max-width: 475px) {
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
   }

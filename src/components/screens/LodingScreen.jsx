@@ -2,6 +2,9 @@ import styled from "@emotion/styled/macro"
 import CarAnimation from "../background-with-animation/CarAnimation"
 import { useContext } from "react"
 import { storeContext } from "../../hooks/StoreContext"
+import { CloseOverlay } from "./TradingExperience"
+import { ReactComponent as Close } from "../../assets/close.svg"
+import { TYPES } from "../../hooks/types"
 
 const ScreenContainer = styled.div`
   width: 100%;
@@ -12,17 +15,21 @@ const ScreenContainer = styled.div`
   bottom: 0;
   left: 0;
 `
-
 const BgWithAnimation = styled(CarAnimation)`
   width: 100%;
 `
 
 const PanDetails = () => {
-  const { state } = useContext(storeContext);
+  const { state, dispatch } = useContext(storeContext);
   const { currentScreen } = state;
+
+  const handleClose = () => {
+    dispatch({ type: TYPES.CLOSE_KYC })
+  }
 
   return (
     <ScreenContainer>
+      <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
       <BgWithAnimation screen={currentScreen} />
     </ScreenContainer>
   )

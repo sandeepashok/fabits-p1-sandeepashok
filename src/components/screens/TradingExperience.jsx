@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { storeContext } from "../../hooks/StoreContext"
 import { TYPES } from "../../hooks/types"
 import { ReactComponent as ArrowNext } from "../../assets/arrow-right.svg"
+import { ReactComponent as Close } from "../../assets/close.svg"
 
 const ScreenContainer = styled.div`
   width: 100%;
@@ -13,6 +14,32 @@ const ScreenContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+`
+const GettingStarted = styled.div`
+  height: 56px;
+  width: 100%;
+  margin: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+  position: absolute;
+  top: 0px;
+  color: #1D3B7A;
+  z-index: 10;
+`
+
+const Heading = styled.b`
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -4%;
+`
+
+const SubHeading = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 `
 
 const BgWithAnimation = styled(CarAnimation)`
@@ -25,13 +52,13 @@ const TradingExperienceSurvey = styled.div`
   background: linear-gradient(#e7e76b 5%, #ffffdb 35%);
 `
 
-const HeadingAndPageNoContainer = styled.div`
+export const HeadingAndPageNoContainer = styled.div`
   height: 56px;
   width: 100%;
   padding: 24px 0;
   display: flex;
 `
-const PageNumberContainer = styled.div`
+export const PageNumberContainer = styled.div`
   height: 56px;
   width: 48px;
   margin-right: 16px;
@@ -39,15 +66,15 @@ const PageNumberContainer = styled.div`
   justify-content: flex-end;
 `
 
-const Heading = styled.p`
-  font-size: 20px;
+export const SurveyHeading = styled.p`
+  font-size: 18px;
   line-height: 28px;
   font-weight: 600;
   letter-spacing: -4%;
   width: 280px;
   margin-left: 16px;
 `
-const PageNumber = styled.p`
+export const PageNumber = styled.p`
   height: 22px;
   width: 32px;
   margin-top: 6px;
@@ -62,7 +89,7 @@ const PageNumber = styled.p`
   justify-content: center;
   align-items: center;
 `
-const OptionsContainer = styled.div`
+export const OptionsContainer = styled.div`
   height: 68px;
   width: 100%;
   display: flex;
@@ -70,7 +97,7 @@ const OptionsContainer = styled.div`
   align-items: center;
   margin-bottom: 32px;
 `
-const Option = styled.button`
+export const Option = styled.button`
   all: unset;
   height: 100%;
   border-radius: 12px;
@@ -83,7 +110,7 @@ const Option = styled.button`
   border: ${({ highlight }) => highlight ? "2px solid #83A720" : ""};
   cursor: pointer;
 `
-const OptionHeading = styled.b`
+export const OptionHeading = styled.b`
   font-size: 16px;
   margin: ${({ highlight }) => highlight ? "8px 18px 4px 18px" : "10px 20px 4px 20px"};
   line-height: 24px;
@@ -124,6 +151,19 @@ const BtnName = styled.p`
   color: #FFFFFF;
   margin-left: 16px;
 `
+export const CloseOverlay = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: #555556;
+  cursor: pointer;
+  position: absolute;
+  top: -56px;
+  left: 160px;
+`
 
 const options = [
   {
@@ -163,12 +203,21 @@ const TradingExperience = () => {
     }, 50)
   }
 
+  const handleClose = () => {
+    dispatch({ type: TYPES.CLOSE_KYC })
+  }
+
   return (
     <ScreenContainer>
+      <GettingStarted>
+        <Heading>Get started with Fabits</Heading>
+        <SubHeading>Answer a few questions to begin onboarding</SubHeading>
+      </GettingStarted>
+      <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
       <BgWithAnimation screen={currentScreen} />
       <TradingExperienceSurvey>
         <HeadingAndPageNoContainer>
-          <Heading>How much trading experience do you have?</Heading>
+          <SurveyHeading>How much trading experience do you have?</SurveyHeading>
           <PageNumberContainer>
             <PageNumber>{currentScreen}/2</PageNumber>
           </PageNumberContainer>

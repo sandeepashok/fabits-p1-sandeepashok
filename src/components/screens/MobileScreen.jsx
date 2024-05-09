@@ -8,6 +8,7 @@ import PanDetails from "./PanDetails";
 import LodingScreen from "./LodingScreen";
 import VerifyDetails from "./VerifyDetails";
 import { storeContext } from "../../hooks/StoreContext";
+import { TYPES } from "../../hooks/types";
 
 const MobileScreenContainer = styled.div`
   min-height: 800px;
@@ -21,6 +22,7 @@ const MobileScreenContainer = styled.div`
 `;
 
 const Overlay = styled.div`
+  display: ${({ isOpen }) => isOpen ? "block" : "none"};
   position: absolute;
   top: 0;
   left: 0;
@@ -32,13 +34,12 @@ const Overlay = styled.div`
 `;
 
 const TradeInfoContainer = styled.div`
-  height: 188px;
   width: calc(100% - 32px);
   margin: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  flex-direction: column;
   transition: opacity 0.3s ease-in-out;
 `;
 
@@ -47,12 +48,32 @@ const TradeInfoCard = styled(InfoCard)`
   width: 100%;
 `;
 
+const StartKyc = styled.button`
+  margin: 16px;
+  padding: 8px 16px;
+  height: 48px;
+  width: max-content;
+  border-radius: 12px;
+  background-color: #83A720;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+`
+
 const MobileScreenContent = () => {
-  const { state } = useContext(storeContext);
-  const { currentScreen } = state;
+  const { state, dispatch } = useContext(storeContext);
+  const { currentScreen, isKycDrawerOpen } = state;
+
+  const handleOpenKyc = () => {
+    dispatch({ type: TYPES.OPEN_KYC })
+  }
+
   return (
     <MobileScreenContainer>
-      <Overlay isVisible={!!currentScreen}>
+      <Overlay isVisible={!!currentScreen} isOpen={isKycDrawerOpen}>
         {currentScreen === 1 && <TradingExperience />}
         {currentScreen === 2 && <PanDetails />}
         {currentScreen === 3 && <LodingScreen />}
@@ -62,6 +83,7 @@ const MobileScreenContent = () => {
       <Navbar />
       <TradeInfoContainer>
         <TradeInfoCard />
+        <StartKyc onClick={handleOpenKyc}>Start KYC</StartKyc>
       </TradeInfoContainer>
     </MobileScreenContainer>
   );

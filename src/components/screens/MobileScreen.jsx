@@ -11,6 +11,8 @@ import { storeContext } from "../../hooks/StoreContext";
 import { TYPES } from "../../hooks/types";
 
 const MobileScreenContainer = styled.div`
+  min-width: 320px;
+  max-width: 425px;
   min-height: 800px;
   height: 800px;
   width: 360px;
@@ -19,6 +21,10 @@ const MobileScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  @media (max-width: 425px) {
+    height: 100vh;
+    width: 100vw;
+  }
 `;
 
 const Overlay = styled.div`

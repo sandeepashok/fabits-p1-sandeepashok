@@ -151,6 +151,16 @@ const BtnName = styled.p`
   color: #FFFFFF;
   margin-left: 16px;
 `
+
+export const CloseOverlayContainer = styled.div`
+  position: absolute;
+  top: -56px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const CloseOverlay = styled.button`
   display: flex;
   justify-content: center;
@@ -160,9 +170,6 @@ export const CloseOverlay = styled.button`
   width: 40px;
   background-color: #555556;
   cursor: pointer;
-  position: absolute;
-  top: -56px;
-  left: 160px;
 `
 
 const options = [
@@ -213,7 +220,9 @@ const TradingExperience = () => {
         <Heading>Get started with Fabits</Heading>
         <SubHeading>Answer a few questions to begin onboarding</SubHeading>
       </GettingStarted>
-      <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      <CloseOverlayContainer>
+        <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      </CloseOverlayContainer>
       <BgWithAnimation screen={currentScreen} />
       <TradingExperienceSurvey>
         <HeadingAndPageNoContainer>

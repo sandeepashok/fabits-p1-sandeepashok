@@ -11,6 +11,7 @@ const BgContainer = styled.div`
   background-image: url(${({ bg }) => bg});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   text-align: left;
   overflow: hidden;
   width: 100%;
@@ -28,6 +29,15 @@ const CarImg = styled.img`
     opacity 0.1s ease
     ${({ screen }) => screen === 3 ? ",top 0.3s ease-in-out" : ""};
   opacity: ${({ visible }) => visible ? "1" : "0"};
+  @media (max-width: 425px){
+    top: ${({ top }) => top + 20}px;
+  }
+  @media (max-width: 375px){
+    top: ${({ top }) => top + 5}px;
+  }
+  @media (max-width: 360px){
+    top: ${({ top }) => top}px;
+  }
 `;
 
 const CarAnimation = ({ screen }) => {
@@ -41,11 +51,11 @@ const CarAnimation = ({ screen }) => {
       dispatch({ type: TYPES.SET_CAR_POSITION_AND_VISIBLITY, payload: { position: 100, visiblity: true } })
       if (screen === 3) {
         setTimeout(() => {
-          setBounceHeight(height => height - 15)
+          setBounceHeight(height => height - 30)
         }, 1350);
         setTimeout(() => {
-          setBounceHeight(height => height + 15)
-        }, 1500);
+          setBounceHeight(height => height + 30)
+        }, 1600);
       }
       setTimeout(() => {
         dispatch({ type: TYPES.SET_CAR_POSITION_AND_VISIBLITY, payload: { position: -100, visiblity: false } })

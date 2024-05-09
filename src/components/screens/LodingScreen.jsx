@@ -2,7 +2,7 @@ import styled from "@emotion/styled/macro"
 import CarAnimation from "../background-with-animation/CarAnimation"
 import { useContext } from "react"
 import { storeContext } from "../../hooks/StoreContext"
-import { CloseOverlay } from "./TradingExperience"
+import { CloseOverlay, CloseOverlayContainer } from "./TradingExperience"
 import { ReactComponent as Close } from "../../assets/close.svg"
 import { TYPES } from "../../hooks/types"
 
@@ -29,7 +29,9 @@ const PanDetails = () => {
 
   return (
     <ScreenContainer>
-      <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      <CloseOverlayContainer>
+        <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      </CloseOverlayContainer>
       <BgWithAnimation screen={currentScreen} />
     </ScreenContainer>
   )

@@ -2,7 +2,7 @@ import styled from "@emotion/styled/macro"
 import CarAnimation from "../background-with-animation/CarAnimation"
 import { useContext } from "react"
 import { storeContext } from "../../hooks/StoreContext"
-import { CloseOverlay, HeadingAndPageNoContainer, PageNumber, PageNumberContainer, SurveyHeading } from "./TradingExperience"
+import { CloseOverlay, CloseOverlayContainer, HeadingAndPageNoContainer, PageNumber, PageNumberContainer, SurveyHeading } from "./TradingExperience"
 import { ReactComponent as Close } from "../../assets/close.svg"
 import { ReactComponent as BackArrow } from "../../assets/arrow-left.svg"
 import { ReactComponent as Next } from "../../assets/arrow-right.svg"
@@ -214,7 +214,9 @@ const PanDetails = () => {
         <Heading>Get started with Fabits</Heading>
         <SubHeading>Answer a few questions to begin onboarding</SubHeading>
       </GettingStarted>
-      <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      <CloseOverlayContainer>
+        <CloseOverlay onClick={handleClose}><Close /></CloseOverlay>
+      </CloseOverlayContainer>
       <BgWithAnimation screen={currentScreen} />
       <PanDetailVarification>
         <HeadingAndPageNoContainer>

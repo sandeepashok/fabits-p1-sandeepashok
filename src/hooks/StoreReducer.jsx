@@ -6,7 +6,7 @@ export const initialState = {
   currentScreen: 1,
   experienceId: 1,
   isKycDrawerOpen: true,
-  verificationMethodId: 0,
+  verificationMethodId: 1,
   panNumber: "DKWPAXXXXM"
 }
 

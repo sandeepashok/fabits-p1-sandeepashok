@@ -17,6 +17,7 @@ const BgContainer = styled.div`
   width: 100%;
   height: ${({ screen }) => screen === 1 ? "349px" : screen === 2 ? "288px" : "535px"};
   position: relative;
+  border-radius: 24px 24px 0 0;
 `;
 
 const CarImg = styled.img`

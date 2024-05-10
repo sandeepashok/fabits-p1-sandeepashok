@@ -1,6 +1,6 @@
 import styled from "@emotion/styled/macro"
 import CarAnimation from "../background-with-animation/CarAnimation"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { storeContext } from "../../hooks/StoreContext"
 import { CloseOverlay, CloseOverlayContainer } from "./TradingExperience"
 import { ReactComponent as Close } from "../../assets/close.svg"
@@ -22,6 +22,13 @@ const BgWithAnimation = styled(CarAnimation)`
 const PanDetails = () => {
   const { state, dispatch } = useContext(storeContext);
   const { currentScreen } = state;
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch({ type: TYPES.SET_SCREEN_NUM, payload: 4 })
+    }, 20000)
+  }, [dispatch])
+
 
   const handleClose = () => {
     dispatch({ type: TYPES.CLOSE_KYC })

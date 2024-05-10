@@ -9,6 +9,7 @@ import LodingScreen from "./LodingScreen";
 import VerifyDetails from "./VerifyDetails";
 import { storeContext } from "../../hooks/StoreContext";
 import { TYPES } from "../../hooks/types";
+import BlurScreen from "./BlurScreen";
 
 const MobileScreenContainer = styled.div`
   min-width: 320px;
@@ -84,7 +85,8 @@ const MobileScreenContent = () => {
         {currentScreen === 1 && <TradingExperience />}
         {currentScreen === 2 && <PanDetails />}
         {currentScreen === 3 && <LodingScreen />}
-        {currentScreen === 4 && <VerifyDetails />}
+        {currentScreen === 4 && <BlurScreen />}
+        {currentScreen === 5 && <VerifyDetails />}
       </Overlay>
       <StatusBar />
       <Navbar />

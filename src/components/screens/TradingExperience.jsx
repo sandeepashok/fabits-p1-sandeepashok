@@ -15,7 +15,7 @@ const ScreenContainer = styled.div`
   bottom: 0;
   left: 0;
 `
-const GettingStarted = styled.div`
+export const GettingStarted = styled.div`
   height: 56px;
   width: 100%;
   margin: 24px 16px;
@@ -29,14 +29,14 @@ const GettingStarted = styled.div`
   z-index: 10;
 `
 
-const Heading = styled.b`
+export const Heading = styled.b`
   font-size: 24px;
   line-height: 32px;
   font-weight: 600;
   letter-spacing: -4%;
 `
 
-const SubHeading = styled.p`
+export const SubHeading = styled.p`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -206,10 +206,10 @@ const TradingExperience = () => {
   }
 
   const handleNext = () => {
-    dispatch({ type: TYPES.SET_SCREEN_NUM, payload: 2 })
+    dispatch({ type: TYPES.SET_SCREEN_NUM, payload: 2 });
     setTimeout(() => {
       dispatch({ type: TYPES.CAR_MOVE_RIGHT })
-    }, 50)
+    }, 50);
   }
 
   const handleClose = () => {

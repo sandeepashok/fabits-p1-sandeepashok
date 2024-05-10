@@ -68,6 +68,7 @@ const Card = styled.div`
   background-color: #FFFFFF;
   border-radius: 20px;
   box-shadow: 0px 6px 16px 0px rgba(45, 45, 45, 0.16);
+  cursor: pointer;
 `
 const CardImageAndHeading = styled.div`
   display: flex;
@@ -123,6 +124,7 @@ const Title = styled.b`
 const VerifyDetails = () => {
 
   const { dispatch } = useContext(storeContext)
+  const url = "https://www.linkedin.com/in/sandeepashok"
 
   const handleClose = () => {
     dispatch({ type: TYPES.CLOSE_KYC })
@@ -139,7 +141,7 @@ const VerifyDetails = () => {
           <SubHeading>Aadhaar link found</SubHeading>
         </VerifyDetailsContainer>
         <AadhaarDetails>
-          <Card>
+          <Card onClick={() => { window.open(url, '_blank') }}>
             <CardImageAndHeading>
               <CardImg src={dp} alt="Profile picture" />
               <CardHeadingContainer>
@@ -158,7 +160,7 @@ const VerifyDetails = () => {
               </SubtitleContainer>
             </SubTitlesGroup>
           </Card>
-          <Card>
+          <Card onClick={() => { window.open(url, '_blank') }}>
             <CardImageAndHeading>
               <CardImg src={fingerPrint} alt="Profile picture" />
               <CardHeadingContainer>
@@ -177,7 +179,7 @@ const VerifyDetails = () => {
               </SubtitleContainer>
             </SubTitlesGroup>
           </Card>
-          <Card>
+          <Card onClick={() => { window.open(url, '_blank') }}>
             <CardImageAndHeading>
               <CardImg src={home} alt="Profile picture" />
               <CardHeadingContainer>

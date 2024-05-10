@@ -26,7 +26,7 @@ const PanDetails = () => {
   useEffect(() => {
     setTimeout(() => {
       dispatch({ type: TYPES.SET_SCREEN_NUM, payload: 4 })
-    }, 20000)
+    }, 6500)
   }, [dispatch])
 
 

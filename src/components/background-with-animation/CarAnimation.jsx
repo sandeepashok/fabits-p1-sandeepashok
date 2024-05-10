@@ -15,7 +15,18 @@ const BgContainer = styled.div`
   text-align: left;
   overflow: hidden;
   width: 100%;
-  height: ${({ screen }) => screen === 1 ? "349px" : screen === 2 ? "288px" : "535px"};
+  height: ${({ screen }) => {
+    switch (screen) {
+      case 1:
+        return "349px";
+      case 2:
+        return "288px";
+      case 3:
+        return "535px";
+      default:
+        return "auto";
+    }
+  }};
   position: relative;
   border-radius: 24px 24px 0 0;
 `;
@@ -48,20 +59,30 @@ const CarAnimation = ({ screen }) => {
   const [bounceHeight, setBounceHeight] = useState(355)
 
   useEffect(() => {
+    const totalDelay = screen === 3 ? 4000 : 8000;
+    const backwardsDelay = screen === 3 ? 2000 : 4000;
+    const bounce = screen === 3 ? 1500 : 1350;
+    const bounceBack = screen === 3 ? 1700 : 1600;
+
+    dispatch({
+      type: TYPES.SET_CAR_POSITION_AND_VISIBLITY,
+      payload: { position: -100, visibility: true }
+    });
+
     const intervalId = setInterval(() => {
       dispatch({ type: TYPES.SET_CAR_POSITION_AND_VISIBLITY, payload: { position: 100, visiblity: true } })
       if (screen === 3) {
         setTimeout(() => {
           setBounceHeight(height => height - 30)
-        }, 1350);
+        }, bounce);
         setTimeout(() => {
           setBounceHeight(height => height + 30)
-        }, 1600);
+        }, bounceBack);
       }
       setTimeout(() => {
         dispatch({ type: TYPES.SET_CAR_POSITION_AND_VISIBLITY, payload: { position: -100, visiblity: false } })
-      }, 4000);
-    }, 8000);
+      }, backwardsDelay);
+    }, totalDelay);
 
     return () => clearInterval(intervalId);
   }, [dispatch, screen]);
